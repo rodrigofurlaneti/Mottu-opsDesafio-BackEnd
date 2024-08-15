@@ -1,8 +1,20 @@
-CREATE PROCEDURE GetCourierById
-    @CourierId INT
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_Couriers_GetById]
+    @CouriersId INT
 AS
 BEGIN
-    SELECT Id, Identifier, Name, CNPJ, BirthDate, CNHNumber, CNHType, CNHImagePath, RegistrationDate
-    FROM Couriers
-    WHERE Id = @CourierId;
+    SET NOCOUNT ON;
+
+    SELECT *
+    FROM [dbo].[Ecommerce_Table_Couriers]
+    WHERE Id = @CouriersId;
 END;
+GO
