@@ -1,4 +1,13 @@
-CREATE PROCEDURE UpdateMotorcycleRental
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_MotorcycleRentals_Update]
     @RentalId INT,
     @CourierId INT,
     @MotorcycleId INT,
@@ -9,7 +18,9 @@ CREATE PROCEDURE UpdateMotorcycleRental
     @DailyRate DECIMAL(10, 2)
 AS
 BEGIN
-    UPDATE MotorcycleRentals
+    SET NOCOUNT ON;
+
+    UPDATE [dbo].[Mottu_Table_MotorcycleRentals]
     SET CourierId = @CourierId,
         MotorcycleId = @MotorcycleId,
         StartDate = @StartDate,
@@ -19,3 +30,6 @@ BEGIN
         DailyRate = @DailyRate
     WHERE Id = @RentalId;
 END;
+GO
+
+
