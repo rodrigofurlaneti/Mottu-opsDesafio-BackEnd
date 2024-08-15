@@ -1,4 +1,4 @@
-USE [rodrigofurlaneti3108_Finance]
+USE [DB_NAME]
 GO
 
 SET ANSI_NULLS ON
