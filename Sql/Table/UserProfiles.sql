@@ -1,0 +1,4 @@
+CREATE TABLE UserProfiles (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    ProfileName NVARCHAR(50) NOT NULL
+);
