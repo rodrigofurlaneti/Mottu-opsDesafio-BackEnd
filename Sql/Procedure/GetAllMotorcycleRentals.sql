@@ -1,6 +1,19 @@
-CREATE PROCEDURE GetAllMotorcycleRentals
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_MotorcycleRentals_GetAll]
 AS
 BEGIN
-    SELECT Id, CourierId, MotorcycleId, StartDate, EndDate, ExpectedEndDate, PlanType, DailyRate, CreatedAt
-    FROM MotorcycleRentals;
+    SET NOCOUNT ON;
+
+    SELECT 
+		*
+    FROM [dbo].[Mottu_Table_Motorcycles];
 END;
+GO
