@@ -1,7 +1,19 @@
-CREATE PROCEDURE DeleteCourier
-    @CourierId INT
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_Courier_Delete] (@CourierId INT)
+
 AS
-BEGIN
-    DELETE FROM Couriers
-    WHERE Id = @CourierId;
-END;
+BEGIN TRANSACTION
+    DELETE FROM [dbo].[Mottu_Table_Couriers]
+		WHERE Id = @CourierId;
+COMMIT TRANSACTION
+GO
+
+
