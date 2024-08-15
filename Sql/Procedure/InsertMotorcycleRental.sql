@@ -1,4 +1,13 @@
-CREATE PROCEDURE InsertMotorcycleRental
+USE [rodrigofurlaneti3108_Finance]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_MotorcycleRentals_Insert]
     @CourierId INT,
     @MotorcycleId INT,
     @StartDate DATE,
@@ -8,8 +17,13 @@ CREATE PROCEDURE InsertMotorcycleRental
     @DailyRate DECIMAL(10, 2)
 AS
 BEGIN
-    INSERT INTO MotorcycleRentals (CourierId, MotorcycleId, StartDate, EndDate, ExpectedEndDate, PlanType, DailyRate)
+    SET NOCOUNT ON;
+
+    INSERT INTO [dbo].[Mottu_Table_MotorcycleRentals] (CourierId, MotorcycleId, StartDate, EndDate, ExpectedEndDate, PlanType, DailyRate)
     VALUES (@CourierId, @MotorcycleId, @StartDate, @EndDate, @ExpectedEndDate, @PlanType, @DailyRate);
     
     SELECT SCOPE_IDENTITY() AS NewRentalId;
 END;
+GO
+
+
