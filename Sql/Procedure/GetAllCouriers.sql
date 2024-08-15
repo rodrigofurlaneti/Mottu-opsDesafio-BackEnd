@@ -1,6 +1,21 @@
-CREATE PROCEDURE GetAllCouriers
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[Mottu_Procedure_Couriers_GetAll]
 AS
 BEGIN
-    SELECT Id, Identifier, Name, CNPJ, BirthDate, CNHNumber, CNHType, CNHImagePath, RegistrationDate
-    FROM Couriers;
+    SET NOCOUNT ON;
+
+    SELECT 
+		*
+    FROM [dbo].[Mottu_Table_Couriers];
 END;
+GO
+
+
