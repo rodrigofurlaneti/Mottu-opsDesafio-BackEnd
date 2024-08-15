@@ -1,0 +1,5 @@
+CREATE TABLE Profiles (
+    Id INT PRIMARY KEY IDENTITY(1,1),
+    Identifier NVARCHAR(50) NOT NULL,
+    RegistrationDate DATETIME DEFAULT GETDATE()
+);
