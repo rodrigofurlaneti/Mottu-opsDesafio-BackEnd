@@ -1,7 +1,19 @@
-CREATE TABLE Users (
+USE [DB_NAME]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Mottu_Table_Users] (
     Id INT PRIMARY KEY IDENTITY(1,1),
     Username NVARCHAR(50) NOT NULL UNIQUE,
     PasswordHash NVARCHAR(255) NOT NULL,
-    ProfileId INT NOT NULL FOREIGN KEY REFERENCES UserProfiles(Id),
-    CreatedAt DATETIME DEFAULT GETDATE()
-);
+    ProfileId INT NOT NULL,
+    CreatedAt DATETIME DEFAULT GETDATE(),
+    CONSTRAINT [FK_Mottu_Table_Users_UserProfiles] FOREIGN KEY (ProfileId) REFERENCES [dbo].[Mottu_Table_UserProfiles](Id)
+) 
+ON [PRIMARY];
+GO
